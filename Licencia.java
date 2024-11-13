@@ -41,33 +41,41 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
         scrollPane1.setBounds(10, 40, 575, 200);
         add(scrollPane1);
 
+        // checklist de acepto(esta desabilitado, si se selecciona se activa el boton de continuar)
         check1 = new JCheckBox("Yo Acepto");
-        check1.setBounds(10, 290, 100, 30);
+        check1.setBounds(7, 250, 100, 30);
         check1.addActionListener(this);
         add(check1);
 
+        // Botón de continuar(inicia desabilitado)
         boton1 = new JButton("Continuar");
         boton1.setBounds(10, 290, 100, 30);
         boton1.addActionListener(this);
         boton1.setEnabled(false);
         add(boton1);
 
-        boton2 = new JButton("No Acepto");
+        // Botón de regresar
+        boton2 = new JButton("Regresar");
         boton2.setBounds(120, 290, 100, 30);
         boton2.addActionListener(this);
         boton2.setEnabled(true);
         add(boton2);
 
-        ImageIcon imagen = new ImageIcon("imagenes/icon.jpg");
+        // Logo de la app
+        ImageIcon imagen = new ImageIcon("imagenes/iconPequeño.jpg");
         label2 = new JLabel(imagen);
-        label2.setBounds(430, 250, 50, 50);
+        label2.setBounds(525, 250, 50, 50);
         add(label2);
     }
 
     public void stateChanged(ChangeEvent e) {
     }
 
+    // evento para que se active el boton "continuar" al marcar la casilla "yo acepto"
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == check1) {
+            boton1.setEnabled(check1.isSelected());
+        }
     }
 
     public static void main(String[] args) {
