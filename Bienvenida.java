@@ -13,9 +13,9 @@ public class Bienvenida extends JFrame implements ActionListener {
         setLayout(null);
         setTitle("Bienvenida");
         getContentPane().setBackground(new Color(255, 0, 0));
-        setIconImage(new ImageIcon(getClass().getResource("imagenes/icon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("imagenes/icon.jpg")).getImage());
 
-        ImageIcon image = new ImageIcon("imagenes/icon.png");
+        ImageIcon image = new ImageIcon("imagenes/icon.jpg");
         label1 = new JLabel(image);
         label1.setBounds(25, 15, 300, 150);
         add(label1);

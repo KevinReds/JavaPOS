@@ -15,7 +15,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
     public Licencia() {
         setLayout(null);
         setTitle("Licencia de uso");
-        setIconImage(new ImageIcon(getClass().getResource("imagenes/icon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("imagenes/icon.jpg")).getImage());
 
         label1 = new JLabel("TERMINOS Y CONDICIONES");
         label1.setBounds(215, 5, 200, 30);
@@ -58,18 +58,16 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
         boton2.setEnabled(true);
         add(boton2);
 
-        ImageIcon imagen = new ImageIcon("imagenes/icon.png");
+        ImageIcon imagen = new ImageIcon("imagenes/icon.jpg");
         label2 = new JLabel(imagen);
-        label2.setBounds(315, 135, 300, 300);
+        label2.setBounds(430, 250, 50, 50);
         add(label2);
     }
 
     public void stateChanged(ChangeEvent e) {
-
     }
 
     public void actionPerformed(ActionEvent e) {
-
     }
 
     public static void main(String[] args) {
