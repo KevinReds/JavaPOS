@@ -20,7 +20,7 @@ public class Bienvenida extends JFrame implements ActionListener {
         label1.setBounds(25, 15, 300, 150);
         add(label1);
 
-        label2 = new JLabel("Sistema de ventas de drogas");
+        label2 = new JLabel("¡Facturar nunca ha sido tan facil!");
         label2.setBounds(35, 135, 320, 150);
         label2.setFont(new Font("Andale Mono", 3, 18));
         label2.setForeground(new Color(255, 255, 255));
