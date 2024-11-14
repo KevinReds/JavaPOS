@@ -12,16 +12,18 @@ public class Bienvenida extends JFrame implements ActionListener {
     public Bienvenida() {
         setLayout(null);
         setTitle("Bienvenida");
-        getContentPane().setBackground(new Color(255, 0, 0));
+        getContentPane().setBackground(new Color(64, 64, 64));
         setIconImage(new ImageIcon(getClass().getResource("imagenes/icon.jpg")).getImage());
 
-        ImageIcon image = new ImageIcon("imagenes/icon.jpg");
-        label1 = new JLabel(image);
-        label1.setBounds(25, 15, 300, 150);
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("imagenes/icon.jpg"));
+        Image image = imageIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+        ImageIcon scaledImageIcon = new ImageIcon(image);
+        label1 = new JLabel(scaledImageIcon);
+        label1.setBounds(100, 15, 150, 150);
         add(label1);
 
         label2 = new JLabel("¡Facturar nunca ha sido tan facil!");
-        label2.setBounds(35, 135, 320, 150);
+        label2.setBounds(30, 120, 320, 150);
         label2.setFont(new Font("Andale Mono", 3, 18));
         label2.setForeground(new Color(255, 255, 255));
         add(label2);
@@ -39,7 +41,7 @@ public class Bienvenida extends JFrame implements ActionListener {
         add(label4);
 
         textfield1 = new JTextField();
-        textfield1.setBounds(45, 240, 255, 25);
+        textfield1.setBounds(45, 250, 255, 25);
         textfield1.setBackground(new Color(244, 244, 244));
         textfield1.setFont(new Font("Andale Mono", 1, 14));
         textfield1.setForeground(new Color(255, 0, 0));
@@ -49,7 +51,7 @@ public class Bienvenida extends JFrame implements ActionListener {
         boton1.setBounds(125, 280, 100, 30);
         boton1.setBackground(new Color(255, 255, 255));
         boton1.setFont(new Font("Andale Mono", 1, 14));
-        boton1.setForeground(new Color(255, 0, 0));
+        boton1.setForeground(new Color(64, 64, 64));
         boton1.addActionListener(this);
         add(boton1);
     }

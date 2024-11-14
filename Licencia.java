@@ -15,6 +15,7 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
     public Licencia() {
         setLayout(null);
         setTitle("Licencia de uso");
+        getContentPane().setBackground(new Color(64, 64, 64));
         setIconImage(new ImageIcon(getClass().getResource("imagenes/icon.jpg")).getImage());
 
         label1 = new JLabel("TERMINOS Y CONDICIONES");
