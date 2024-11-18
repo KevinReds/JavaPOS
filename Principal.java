@@ -1,9 +1,8 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.time.chrono.JapaneseChronology;
-import javax.management.MBeanAttributeInfo;
+//import java.time.chrono.JapaneseChronology;
+//import javax.management.MBeanAttributeInfo;
 
 public class Principal extends JFrame implements ActionListener {
 
@@ -156,7 +155,7 @@ public class Principal extends JFrame implements ActionListener {
         add(txtAPaternoTrabajador);
 
         labelAMaterno = new JLabel("Apellido materno");
-        labelAMaterno.setBounds(25, 248, 180, 25);
+        labelAMaterno.setBounds(25, 298, 180, 25);
         labelAMaterno.setFont(new Font("Andale Mono", 1, 12));
         labelAMaterno.setForeground(new java.awt.Color(255, 255, 255));
         add(labelAMaterno);
@@ -225,7 +224,7 @@ public class Principal extends JFrame implements ActionListener {
         add(labelFooter);
 
     }
-
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == miCalculo) {
         }
@@ -256,3 +255,4 @@ public class Principal extends JFrame implements ActionListener {
         ventanaPrincipal.setResizable(false);
         ventanaPrincipal.setLocationRelativeTo(null);
     }
+}

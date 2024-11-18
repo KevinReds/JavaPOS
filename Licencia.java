@@ -42,7 +42,8 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
         scrollPane1.setBounds(10, 40, 575, 200);
         add(scrollPane1);
 
-        // checklist de acepto(esta desabilitado, si se selecciona se activa el boton de continuar)
+        // checklist de acepto(esta desabilitado, si se selecciona se activa el boton de
+        // continuar)
         check1 = new JCheckBox("Yo Acepto");
         check1.setBounds(7, 250, 100, 30);
         check1.addActionListener(this);
@@ -72,10 +73,33 @@ public class Licencia extends JFrame implements ActionListener, ChangeListener {
     public void stateChanged(ChangeEvent e) {
     }
 
-    // evento para que se active el boton "continuar" al marcar la casilla "yo acepto"
+    // evento para que se active el boton "continuar" al marcar la casilla "yo
+    // acepto"
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == check1) {
             boton1.setEnabled(check1.isSelected());
+        }
+        if (e.getSource() == boton1) {
+            // Cerrar la ventana de licencia
+            this.dispose();
+
+            // Crear y mostrar la ventana principal
+            Principal wnPrincipal = new Principal();
+            wnPrincipal.setBounds(0, 0, 640, 535);
+            wnPrincipal.setVisible(true);
+            wnPrincipal.setResizable(false);
+            wnPrincipal.setLocationRelativeTo((Component) null);
+        }
+        if (e.getSource() == boton2) {
+            // Cerrar la ventana de licencia
+            this.dispose();
+
+            // Crear y mostrar la ventana Bienvenida
+            Bienvenida ventanaBienvenida = new Bienvenida();
+            ventanaBienvenida.setBounds(0, 0, 350, 450);
+            ventanaBienvenida.setResizable(false);
+            ventanaBienvenida.setVisible(true);
+            ventanaBienvenida.setLocationRelativeTo(null);
         }
     }
 

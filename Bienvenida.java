@@ -58,8 +58,22 @@ public class Bienvenida extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boton1) {
-            String nombre = textfield1.getText();
-            JOptionPane.showMessageDialog(this, "Bienvenido, " + nombre + "!");
+            String nombre = textfield1.getText().trim();
+
+            // Verificar que el campo no esté vacío
+            if (!nombre.equals("")) {
+                // Cerrar la ventana de bienvenida
+                this.dispose();
+
+                // Crear y mostrar la ventana de licencia
+                Licencia wnLicencia = new Licencia();
+                wnLicencia.setBounds(0, 0, 600, 360);
+                wnLicencia.setResizable(false);
+                wnLicencia.setVisible(true);
+                wnLicencia.setLocationRelativeTo(null);
+            } else {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese su nombre.");
+            }
         }
     }
 
