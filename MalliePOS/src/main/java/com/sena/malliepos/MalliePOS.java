@@ -4,13 +4,15 @@
 
 package com.sena.malliepos;
 
-/**
- *
- * @author Kevin
- */
+import GUI.Bienvenida;
+
+
+
 public class MalliePOS {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Bienvenida ventanaBienvenida = new Bienvenida();
+        ventanaBienvenida.setVisible(true);
+        
     }
 }
