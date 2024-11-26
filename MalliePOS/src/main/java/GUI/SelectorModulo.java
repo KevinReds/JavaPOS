@@ -34,6 +34,7 @@ public class SelectorModulo extends javax.swing.JFrame {
         btn_mInv = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\cart200.png")); // NOI18N
 
