@@ -77,7 +77,7 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Kevin\OneDrive\Documentos\GitHub\JavaPOS\MalliePOS\Recursos\cart200.png"/>
+          <Image iconType="3" name="/Img/cart200.png"/>
         </Property>
       </Properties>
     </Component>
@@ -100,7 +100,7 @@
     <Component class="javax.swing.JButton" name="btn_mFac">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Kevin\OneDrive\Documentos\GitHub\JavaPOS\MalliePOS\Recursos\money50.png"/>
+          <Image iconType="3" name="/Img/money50.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modulo Facturacion"/>
       </Properties>
@@ -108,7 +108,7 @@
     <Component class="javax.swing.JButton" name="btn_mPer">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Kevin\OneDrive\Documentos\GitHub\JavaPOS\MalliePOS\Recursos\people50.png"/>
+          <Image iconType="3" name="/Img/people50.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modulo Personas"/>
       </Properties>
@@ -116,7 +116,7 @@
     <Component class="javax.swing.JButton" name="btn_mInv">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Kevin\OneDrive\Documentos\GitHub\JavaPOS\MalliePOS\Recursos\inventory50.png"/>
+          <Image iconType="3" name="/Img/inventory50.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modulo Inventario"/>
       </Properties>
