@@ -37,7 +37,7 @@ public class Bienvenida extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("¡Facturar nunca ha sido tan facil!");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\cart200.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cart200.png"))); // NOI18N
 
         jLabel4.setText("Ingrese su nombre");
 
