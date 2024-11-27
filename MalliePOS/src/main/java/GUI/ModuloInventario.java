@@ -53,9 +53,9 @@ public class ModuloInventario extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("¡Facturar nunca ha sido tan facil!");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\cart50.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cart50.png"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\inventory50.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/inventory50.png"))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Gestione su inventario");
@@ -281,9 +281,6 @@ public class ModuloInventario extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
@@ -295,7 +292,6 @@ public class ModuloInventario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
