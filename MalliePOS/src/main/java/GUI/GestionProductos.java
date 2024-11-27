@@ -69,10 +69,6 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("¡Facturar nunca ha sido tan facil!");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\cart50.png")); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\inventory50.png")); // NOI18N
-
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Gestione sus productos");
 
@@ -122,13 +118,16 @@ public class GestionProductos extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18))); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\new-file50.png")); // NOI18N
         jButton1.setText("Crear");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\edit50.png")); // NOI18N
         jButton2.setText("Editar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -138,7 +137,6 @@ public class GestionProductos extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\delete50.png")); // NOI18N
         jButton3.setText("Eliminar");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -168,13 +166,11 @@ public class GestionProductos extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Navegacion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18))); // NOI18N
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\home50.png")); // NOI18N
         jButton4.setText("Inicio");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setPreferredSize(new java.awt.Dimension(100, 100));
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\undo50.png")); // NOI18N
         jButton5.setText("Atras");
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -184,7 +180,6 @@ public class GestionProductos extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kevin\\OneDrive\\Documentos\\GitHub\\JavaPOS\\MalliePOS\\Recursos\\log-out50.png")); // NOI18N
         jButton6.setText("Salir");
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -399,6 +394,10 @@ public class GestionProductos extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

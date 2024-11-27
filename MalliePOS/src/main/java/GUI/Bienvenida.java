@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -17,6 +12,7 @@ public class Bienvenida extends javax.swing.JFrame {
      */
     public Bienvenida() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -118,11 +114,13 @@ public class Bienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ingresarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_ingresarActionPerformed
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-         JOptionPane.showMessageDialog(this, "Por favor, ingrese su nombre.");
+    Licencia licencia = new Licencia();
+    licencia.setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     /**
