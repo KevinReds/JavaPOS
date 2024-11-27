@@ -70,8 +70,10 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel7.setText("¡Facturar nunca ha sido tan facil!");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cart50.png"))); // NOI18N
+        jLabel4.setText("a");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/inventory50.png"))); // NOI18N
+        jLabel3.setText("a");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Gestione sus productos");
