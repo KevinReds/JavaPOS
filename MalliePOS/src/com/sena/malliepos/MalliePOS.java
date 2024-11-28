@@ -1,6 +1,6 @@
 package com.sena.malliepos;
 
-import GUI.Bienvenida;
+import utils.DatabaseConnection;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,8 +18,9 @@ public class MalliePOS {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Bienvenida ventana = new Bienvenida();
-        ventana.setVisible(true);
+        
+    
+    
     }
     
 }
