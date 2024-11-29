@@ -1,14 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
+import Controllers.ProductoController;
+import Models.Producto;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+
 /**
+ * Ventana de gestión de productos.
  *
  * @author Kevin
  */
 public class GestionProductos extends javax.swing.JFrame {
+
+    private ProductoController productoController;
+    private List<Producto> productosOriginales; // Lista para mantener los datos originales
 
     /**
      * Creates new form GestionProductos
@@ -16,8 +26,142 @@ public class GestionProductos extends javax.swing.JFrame {
     public GestionProductos() {
         initComponents();
         this.setLocationRelativeTo(null);
+
+        // Inicializar controlador
+        productoController = new ProductoController();
+
+        // Configurar tbl_consulta
+        tbl_consulta.setModel(new NonEditableTableModel());
+        DefaultTableModel tableModelConsulta = (DefaultTableModel) tbl_consulta.getModel();
+        tableModelConsulta.setColumnIdentifiers(new String[]{"ID", "Categoría", "Referencia", "Nombre", "Descripción", "Stock", "Precio"});
+
+        // Configurar tbl_seleccionado
+        tbl_seleccionado.setModel(new NonEditableTableModel());
+        DefaultTableModel tableModelSeleccionado = (DefaultTableModel) tbl_seleccionado.getModel();
+        tableModelSeleccionado.setColumnIdentifiers(new String[]{"ID", "Categoría", "Referencia", "Nombre", "Descripción", "Stock", "Precio"});
+
+        // Cargar productos automáticamente al iniciar
+        cargarProductos();
+
+        // Agregar listener de doble clic a tbl_consulta
+        agregarListenerTablaConsulta();
+
+        // Agregar listener al campo txt_consulta
+        agregarListenerCampoConsulta();
     }
 
+    private void agregarListenerTablaConsulta() {
+        tbl_consulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (evt.getClickCount() == 2) { // Verificar si es un doble clic
+                    int filaSeleccionada = tbl_consulta.getSelectedRow(); // Obtener fila seleccionada
+
+                    if (filaSeleccionada >= 0) {
+                        // Obtener datos de la fila seleccionada
+                        DefaultTableModel model = (DefaultTableModel) tbl_consulta.getModel();
+                        Object idProducto = model.getValueAt(filaSeleccionada, 0);
+                        Object categoria = model.getValueAt(filaSeleccionada, 1);
+                        Object referencia = model.getValueAt(filaSeleccionada, 2);
+                        Object nombre = model.getValueAt(filaSeleccionada, 3);
+                        Object descripcion = model.getValueAt(filaSeleccionada, 4);
+                        Object stock = model.getValueAt(filaSeleccionada, 5);
+                        Object precio = model.getValueAt(filaSeleccionada, 6);
+
+                        // Mostrar datos en tbl_seleccionado
+                        DefaultTableModel modelSeleccionado = (DefaultTableModel) tbl_seleccionado.getModel();
+                        modelSeleccionado.setRowCount(0); // Limpiar la tabla
+                        modelSeleccionado.addRow(new Object[]{idProducto, categoria, referencia, nombre, descripcion, stock, precio});
+                    }
+                }
+            }
+        });
+    }
+
+    private void cargarProductos() {
+        try {
+            // Obtener lista de productos desde el controlador
+            productosOriginales = productoController.obtenerTodosLosProductos();
+
+            // Mostrar productos en la tabla
+            actualizarTabla(productosOriginales);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar los productos: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void actualizarTabla(List<Producto> productos) {
+        // Obtener el modelo de la tabla
+        DefaultTableModel tableModel = (DefaultTableModel) tbl_consulta.getModel();
+
+        // Limpiar la tabla antes de agregar nuevos datos
+        tableModel.setRowCount(0);
+
+        // Agregar los productos al modelo de la tabla
+        for (Producto producto : productos) {
+            tableModel.addRow(new Object[]{
+                    producto.getIdProducto(),
+                    producto.getIdCategoria(),
+                    producto.getReferencia(),
+                    producto.getNombre(),
+                    producto.getDescripcion(),
+                    producto.getStock(),
+                    producto.getPrecio()
+            });
+        }
+    }
+
+    private void filtrarProductos() {
+        String texto = txt_consulta.getText().toLowerCase(); // Texto del campo de búsqueda
+
+        // Lista para almacenar productos filtrados
+        List<Producto> productosFiltrados = new ArrayList<>();
+
+        for (Producto producto : productosOriginales) {
+            // Verificar coincidencia exacta dentro de las cadenas
+            if (producto.getReferencia().toLowerCase().contains(texto)
+                    || producto.getNombre().toLowerCase().contains(texto)
+                    || producto.getDescripcion().toLowerCase().contains(texto)
+                    || String.valueOf(producto.getIdCategoria()).toLowerCase().contains(texto)) {
+                productosFiltrados.add(producto);
+            }
+        }
+
+        // Actualizar la tabla con los productos filtrados
+        actualizarTabla(productosFiltrados);
+    }
+
+    private void agregarListenerCampoConsulta() {
+        txt_consulta.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                filtrarProductos();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filtrarProductos();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filtrarProductos();
+            }
+        });
+    }
+
+    /**
+     * Clase personalizada para desactivar la edición de celdas en las tablas.
+     */
+    private static class NonEditableTableModel extends DefaultTableModel {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // Todas las celdas no son editables
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,12 +193,12 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbl_seleccionado = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_consulta = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_consulta = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -254,7 +398,7 @@ public class GestionProductos extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seleccionado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18))); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_seleccionado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null}
             },
@@ -270,7 +414,7 @@ public class GestionProductos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tbl_seleccionado);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -291,7 +435,7 @@ public class GestionProductos extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_consulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -321,12 +465,12 @@ public class GestionProductos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_consulta);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Buscar Producto:");
 
-        jTextField1.setToolTipText("");
+        txt_consulta.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Categoria:");
@@ -343,7 +487,7 @@ public class GestionProductos extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1)
+                        .addComponent(txt_consulta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -357,7 +501,7 @@ public class GestionProductos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -485,8 +629,8 @@ public class GestionProductos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tbl_consulta;
+    private javax.swing.JTable tbl_seleccionado;
+    private javax.swing.JTextField txt_consulta;
     // End of variables declaration//GEN-END:variables
 }
