@@ -5,11 +5,17 @@
         <group>
 <<<<<<< Updated upstream
             <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/GestionProductos.java</file>
+<<<<<<< Updated upstream
 =======
             <file>file:/C:/Users/santi/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Producto.java</file>
             <file>file:/C:/Users/santi/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/CrearProducto.java</file>
             <file>file:/C:/Users/santi/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/GestionProductos.java</file>
             <file>file:/C:/Users/santi/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Controllers/ProductoController.java</file>
+>>>>>>> Stashed changes
+=======
+            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Controllers/ProductoController.java</file>
+            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/ModuloInventario.java</file>
+            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Producto.java</file>
 >>>>>>> Stashed changes
         </group>
     </open-files>
