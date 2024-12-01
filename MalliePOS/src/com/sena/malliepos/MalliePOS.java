@@ -1,6 +1,5 @@
 package com.sena.malliepos;
 
-import utils.DatabaseConnection;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

@@ -180,7 +180,7 @@ public class Producto {
         }
         return producto;
     }
-    //prueba de update para producto
+    //prueba de Guardar para producto
     /*
     public static void main (String args[]){
     Producto nuevoProducto = new Producto(1, 1, "ABC123", "Producto de prueba", "Este es un producto para probar", 10, 10000);
