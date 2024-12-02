@@ -1,34 +1,20 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
 
-import Controllers.ProductoController;
-import javax.swing.JOptionPane;
-import java.sql.SQLException;
-
 /**
  *
- * @author santi
+ * @author Kevin
  */
-public class CrearProducto extends javax.swing.JFrame {
+public class EditarProducto extends javax.swing.JFrame {
 
-    int idCategoriaV, stockV;
-    String nombreV, descripcionV, referenciaV;
-    float precioV;
-    
-    ProductoController productoController;
-    
     /**
-     * Creates new form CrearProducto
+     * Creates new form EditarProducto
      */
-    public CrearProducto() {
+    public EditarProducto() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        productoController = new ProductoController();
-        
     }
 
     /**
@@ -40,21 +26,21 @@ public class CrearProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_crearProducto = new javax.swing.JLabel();
-        txt_referenciaProd = new javax.swing.JTextField();
-        txt_nombreProd = new javax.swing.JTextField();
-        txt_descripcionProd = new javax.swing.JTextField();
-        txt_categoriaProd = new javax.swing.JTextField();
-        txt_stockProd = new javax.swing.JTextField();
-        txt_precioProd = new javax.swing.JTextField();
-        lbl_referencia = new javax.swing.JLabel();
-        lbl_nombre = new javax.swing.JLabel();
-        lbl_descripcion = new javax.swing.JLabel();
-        lbl_categoria = new javax.swing.JLabel();
-        lbl_stock = new javax.swing.JLabel();
         lbl_precio = new javax.swing.JLabel();
-        btn_crearProd = new javax.swing.JButton();
+        txt_precioProd = new javax.swing.JTextField();
         btn_atrasProd = new javax.swing.JButton();
+        btn_crearProd = new javax.swing.JButton();
+        txt_stockProd = new javax.swing.JTextField();
+        lbl_stock = new javax.swing.JLabel();
+        lbl_categoria = new javax.swing.JLabel();
+        txt_categoriaProd = new javax.swing.JTextField();
+        txt_descripcionProd = new javax.swing.JTextField();
+        lbl_descripcion = new javax.swing.JLabel();
+        lbl_nombre = new javax.swing.JLabel();
+        txt_nombreProd = new javax.swing.JTextField();
+        txt_referenciaProd = new javax.swing.JTextField();
+        lbl_referencia = new javax.swing.JLabel();
+        lbl_crearProducto = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -65,33 +51,7 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_crearProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbl_crearProducto.setText("Crear Producto");
-
-        txt_stockProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_stockProdActionPerformed(evt);
-            }
-        });
-
-        lbl_referencia.setText("Referencia");
-
-        lbl_nombre.setText("Nombre");
-
-        lbl_descripcion.setText("Descripcion");
-
-        lbl_categoria.setText("Categoria");
-
-        lbl_stock.setText("Stock");
-
         lbl_precio.setText("Precio");
-
-        btn_crearProd.setText("Crear");
-        btn_crearProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_crearProdActionPerformed(evt);
-            }
-        });
 
         btn_atrasProd.setText("Atras");
         btn_atrasProd.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +59,32 @@ public class CrearProducto extends javax.swing.JFrame {
                 btn_atrasProdActionPerformed(evt);
             }
         });
+
+        btn_crearProd.setText("Editar");
+        btn_crearProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_crearProdActionPerformed(evt);
+            }
+        });
+
+        txt_stockProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_stockProdActionPerformed(evt);
+            }
+        });
+
+        lbl_stock.setText("Stock");
+
+        lbl_categoria.setText("Categoria");
+
+        lbl_descripcion.setText("Descripcion");
+
+        lbl_nombre.setText("Nombre");
+
+        lbl_referencia.setText("Referencia");
+
+        lbl_crearProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_crearProducto.setText("Editar Producto");
 
         jPanel1.setBackground(new java.awt.Color(142, 225, 132));
 
@@ -129,7 +115,7 @@ public class CrearProducto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -190,7 +176,7 @@ public class CrearProducto extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(lbl_crearProducto)))))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -227,22 +213,23 @@ public class CrearProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_crearProd)
                     .addComponent(btn_atrasProd))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_stockProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_stockProdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_stockProdActionPerformed
+    private void btn_atrasProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasProdActionPerformed
+        GestionProductos gestionProductos;
+        gestionProductos = new GestionProductos();
+        gestionProductos.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_atrasProdActionPerformed
 
     private void btn_crearProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearProdActionPerformed
         nombreV = txt_nombreProd.getText();
         descripcionV = txt_descripcionProd.getText();
         referenciaV = txt_referenciaProd.getText();
-
-
 
         try {
             // Convertir el texto a un número entero
@@ -251,7 +238,7 @@ public class CrearProducto extends javax.swing.JFrame {
             // Manejar el caso en que el texto no sea un número válido
             JOptionPane.showMessageDialog(null, "Por favor, ingresa una categoria que sea válida");
         }
-        
+
         try {
             // Convertir el texto a un número entero
             stockV = Integer.parseInt(txt_stockProd.getText());
@@ -259,7 +246,7 @@ public class CrearProducto extends javax.swing.JFrame {
             // Manejar el caso en que el texto no sea un número válido
             JOptionPane.showMessageDialog(null, "Por favor, ingresa un stock que sea válido");
         }
-        
+
         try {
             // Convertir el texto a un número entero
             precioV = Float.parseFloat(txt_precioProd.getText());
@@ -267,24 +254,19 @@ public class CrearProducto extends javax.swing.JFrame {
             // Manejar el caso en que el texto no sea un número válido
             JOptionPane.showMessageDialog(null, "Por favor, ingresa un precio que sea válido");
         }
-        
-        
-        
+
         try {
             productoController.crearProducto(idCategoriaV, referenciaV, nombreV, descripcionV, stockV, precioV);
             JOptionPane.showMessageDialog(null, "Datos registrados exitosamente");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar el registro en la base de datos"+ e.getMessage());
         }
-                                
+
     }//GEN-LAST:event_btn_crearProdActionPerformed
 
-    private void btn_atrasProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasProdActionPerformed
-            GestionProductos gestionProductos;
-            gestionProductos = new GestionProductos();
-            gestionProductos.setVisible(true);
-            this.setVisible(false);
-    }//GEN-LAST:event_btn_atrasProdActionPerformed
+    private void txt_stockProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_stockProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_stockProdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,20 +285,20 @@ public class CrearProducto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CrearProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CrearProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CrearProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CrearProducto().setVisible(true);
+                new EditarProducto().setVisible(true);
             }
         });
     }

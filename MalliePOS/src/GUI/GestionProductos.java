@@ -574,7 +574,9 @@ public class GestionProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void btn_crearProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearProdActionPerformed
-        
+        CrearProducto crearProducto = new CrearProducto();
+        crearProducto.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_crearProdActionPerformed
 
     /**

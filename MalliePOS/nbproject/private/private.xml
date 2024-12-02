@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Persona.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Factura.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Compras.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Categoria.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/DetalleCompras.java</file>
+            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/CrearProducto.java</file>
+            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/GestionProductos.java</file>
             <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Controllers/ProductoController.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Rol.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Controllers/RolController.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/Producto.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/DetalleFactura.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Models/PersonasRol.java</file>
-            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/Controllers/CategoriaController.java</file>
+            <file>file:/C:/Users/Kevin/OneDrive/Documentos/GitHub/JavaPOS/MalliePOS/src/GUI/EditarProducto.java</file>
         </group>
     </open-files>
 </project-private>
