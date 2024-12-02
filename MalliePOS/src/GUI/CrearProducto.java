@@ -68,6 +68,12 @@ public class CrearProducto extends javax.swing.JFrame {
         lbl_crearProducto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_crearProducto.setText("Crear Producto");
 
+        txt_referenciaProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_referenciaProdActionPerformed(evt);
+            }
+        });
+
         txt_stockProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_stockProdActionPerformed(evt);
@@ -285,6 +291,10 @@ public class CrearProducto extends javax.swing.JFrame {
             gestionProductos.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_btn_atrasProdActionPerformed
+
+    private void txt_referenciaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_referenciaProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_referenciaProdActionPerformed
 
     /**
      * @param args the command line arguments

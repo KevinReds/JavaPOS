@@ -50,6 +50,11 @@ public class SelectorModulo extends javax.swing.JFrame {
 
         btn_mPer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/people50.png"))); // NOI18N
         btn_mPer.setText("Modulo Personas");
+        btn_mPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mPerActionPerformed(evt);
+            }
+        });
 
         btn_mod_inv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/inventory50.png"))); // NOI18N
         btn_mod_inv.setText("Modulo Inventario");
@@ -110,6 +115,12 @@ public class SelectorModulo extends javax.swing.JFrame {
         inventario.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_mod_invActionPerformed
+
+    private void btn_mPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mPerActionPerformed
+        ModuloPersonas Mpersonas = new ModuloPersonas();
+        Mpersonas.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_mPerActionPerformed
 
     /**
      * @param args the command line arguments

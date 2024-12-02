@@ -112,6 +112,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Modulo Personas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_mPerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_mod_inv">
       <Properties>
