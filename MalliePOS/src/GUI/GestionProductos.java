@@ -161,7 +161,6 @@ public class GestionProductos extends javax.swing.JFrame {
         }
     }
     
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -292,6 +291,11 @@ public class GestionProductos extends javax.swing.JFrame {
         btn_eliminarProd.setText("Eliminar");
         btn_eliminarProd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_eliminarProd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_eliminarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarProdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -554,7 +558,34 @@ public class GestionProductos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_editarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarProdActionPerformed
-        // TODO add your handling code here:
+        // Obtener el modelo de la tabla
+        DefaultTableModel modeloTabla = (DefaultTableModel) tbl_seleccionado.getModel();
+
+        // Verificar si la tabla está vacía
+        if (modeloTabla.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "La tabla está vacía. No hay productos para editar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; // Salir del método
+        }
+
+        // Extraer los valores de la primera fila de la tabla
+        try {
+            int idProducto = Integer.parseInt(modeloTabla.getValueAt(0, 0).toString());
+            int idCategoria = Integer.parseInt(modeloTabla.getValueAt(0, 1).toString());
+            String referencia = modeloTabla.getValueAt(0, 2).toString();
+            String nombre = modeloTabla.getValueAt(0, 3).toString();
+            String descripcion = modeloTabla.getValueAt(0, 4).toString();
+            int stock = Integer.parseInt(modeloTabla.getValueAt(0, 5).toString());
+            float precio = Float.parseFloat(modeloTabla.getValueAt(0, 6).toString());
+
+            // Crear el objeto EditarProducto
+            EditarProducto editarProducto = new EditarProducto(idProducto, idCategoria, referencia, nombre, descripcion, stock, precio);
+            editarProducto.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al procesar los datos de la tabla. Verifica los valores.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btn_editarProdActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
@@ -578,6 +609,44 @@ public class GestionProductos extends javax.swing.JFrame {
         crearProducto.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_crearProdActionPerformed
+
+    private void btn_eliminarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarProdActionPerformed
+        
+        int idProducto;
+        // Obtener el modelo de la tabla
+        DefaultTableModel modeloTabla = (DefaultTableModel) tbl_seleccionado.getModel();
+
+        // Verificar si la tabla está vacía
+        if (modeloTabla.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "La tabla está vacía. No hay productos para Eliminar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return; // Salir del método
+        }
+        
+        try {
+            idProducto = Integer.parseInt(modeloTabla.getValueAt(0, 0).toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al procesar los datos de la tabla. Verifica los valores.", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            return;
+        }
+        
+        Producto productoLeido;
+        try {
+          productoLeido = Producto.buscarPorId(idProducto); 
+          if (productoLeido != null) {
+            try {
+                productoLeido.eliminar();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error al procesar los datos de la tabla. Verifica los valores."+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+          } else {
+            System.out.println("Producto a eliminar no encontrado con ID: " + idProducto);
+          }
+        } catch (SQLException e) {
+          JOptionPane.showMessageDialog(this, "Error al procesar los datos de la tabla. Verifica los valores."+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        cargarProductos();
+    }//GEN-LAST:event_btn_eliminarProdActionPerformed
 
     /**
      * @param args the command line arguments

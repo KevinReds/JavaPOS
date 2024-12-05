@@ -4,19 +4,41 @@
  */
 package GUI;
 
+import Controllers.ProductoController;
+import Models.Producto;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
+
 /**
  *
  * @author Kevin
  */
 public class EditarProducto extends javax.swing.JFrame {
-
+    int idCategoriaV, stockV, idProductoV;
+    String nombreV, descripcionV, referenciaV;
+    float precioV;
+    ProductoController productoController;
+    
     /**
      * Creates new form EditarProducto
      */
     public EditarProducto() {
         initComponents();
     }
-
+    
+    public EditarProducto(int idProducto, int idCategoria, String referencia, String nombre, String descripcion, int stock, float precio){
+        initComponents();
+        this.txt_referenciaProd.setText(referencia);
+        this.txt_nombreProd.setText(nombre);
+        this.txt_descripcionProd.setText(descripcion);
+        this.txt_categoriaProd.setText(""+idCategoria);
+        this.txt_stockProd.setText(""+stock);
+        this.txt_precioProd.setText(""+precio);
+        
+        this.idProductoV=idProducto;
+        productoController = new ProductoController();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,7 +51,7 @@ public class EditarProducto extends javax.swing.JFrame {
         lbl_precio = new javax.swing.JLabel();
         txt_precioProd = new javax.swing.JTextField();
         btn_atrasProd = new javax.swing.JButton();
-        btn_crearProd = new javax.swing.JButton();
+        btn_editarProd = new javax.swing.JButton();
         txt_stockProd = new javax.swing.JTextField();
         lbl_stock = new javax.swing.JLabel();
         lbl_categoria = new javax.swing.JLabel();
@@ -60,10 +82,10 @@ public class EditarProducto extends javax.swing.JFrame {
             }
         });
 
-        btn_crearProd.setText("Editar");
-        btn_crearProd.addActionListener(new java.awt.event.ActionListener() {
+        btn_editarProd.setText("Guardar cambios");
+        btn_editarProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_crearProdActionPerformed(evt);
+                btn_editarProdActionPerformed(evt);
             }
         });
 
@@ -155,7 +177,7 @@ public class EditarProducto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_atrasProd)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_crearProd))
+                        .addComponent(btn_editarProd))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,7 +198,7 @@ public class EditarProducto extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(lbl_crearProducto)))))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -211,7 +233,7 @@ public class EditarProducto extends javax.swing.JFrame {
                     .addComponent(lbl_precio))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_crearProd)
+                    .addComponent(btn_editarProd)
                     .addComponent(btn_atrasProd))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
@@ -226,7 +248,7 @@ public class EditarProducto extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btn_atrasProdActionPerformed
 
-    private void btn_crearProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearProdActionPerformed
+    private void btn_editarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarProdActionPerformed
         nombreV = txt_nombreProd.getText();
         descripcionV = txt_descripcionProd.getText();
         referenciaV = txt_referenciaProd.getText();
@@ -254,15 +276,31 @@ public class EditarProducto extends javax.swing.JFrame {
             // Manejar el caso en que el texto no sea un número válido
             JOptionPane.showMessageDialog(null, "Por favor, ingresa un precio que sea válido");
         }
-
+        
+        Producto productoLeido;
         try {
-            productoController.crearProducto(idCategoriaV, referenciaV, nombreV, descripcionV, stockV, precioV);
-            JOptionPane.showMessageDialog(null, "Datos registrados exitosamente");
+          productoLeido = Producto.buscarPorId(idProductoV); 
+          if (productoLeido != null) {
+            //Al haber leido el producto correctamente puedo cambiar sus parametros para luego actualizar
+            productoLeido.setReferencia(referenciaV);
+            productoLeido.setNombre(nombreV);
+            productoLeido.setDescripcion(descripcionV); 
+            productoLeido.setStock(stockV);
+            productoLeido.setPrecio(precioV);
+            try {
+                productoLeido.actualizar();
+                JOptionPane.showMessageDialog(null, "Producto actualizado");
+            } catch (SQLException e) {
+                System.err.println("Error al actualizar el producto: " + e.getMessage());
+            }
+          } else {
+            JOptionPane.showMessageDialog(null, "Producto no encontrado");
+          }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "No se pudo realizar el registro en la base de datos"+ e.getMessage());
+          System.err.println("Error al leer el producto: " + e.getMessage());
         }
 
-    }//GEN-LAST:event_btn_crearProdActionPerformed
+    }//GEN-LAST:event_btn_editarProdActionPerformed
 
     private void txt_stockProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_stockProdActionPerformed
         // TODO add your handling code here:
@@ -305,7 +343,7 @@ public class EditarProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_atrasProd;
-    private javax.swing.JButton btn_crearProd;
+    private javax.swing.JButton btn_editarProd;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

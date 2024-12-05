@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author Kevin
  */
+
 public class Producto {
     private int idProducto;
     private int idCategoria;

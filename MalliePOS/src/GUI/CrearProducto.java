@@ -22,13 +22,12 @@ public class CrearProducto extends javax.swing.JFrame {
     ProductoController productoController;
     
     /**
-     * Creates new form CrearProducto
+     * Constructor de CrearProducto
      */
     public CrearProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
         productoController = new ProductoController();
-        
     }
 
     /**

@@ -42,7 +42,7 @@ public class DatabaseConnection {
     }
     
     //funcion main creada para verificar la conexion con la base de datos
-    /*
+    
     public static void main(String[] args) {
         try {
             getConnection();
@@ -52,5 +52,5 @@ public class DatabaseConnection {
             closeConnection();
         }
     }
-    */
+    
 }

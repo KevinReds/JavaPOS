@@ -29,7 +29,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btn_atrasProd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_crearProd" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_editarProd" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -57,7 +57,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="114" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
@@ -100,7 +100,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_crearProd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_editarProd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_atrasProd" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="54" max="32767" attributes="0"/>
@@ -124,12 +124,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_atrasProdActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_crearProd">
+    <Component class="javax.swing.JButton" name="btn_editarProd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="text" type="java.lang.String" value="Guardar cambios"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_crearProdActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_editarProdActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_stockProd">
