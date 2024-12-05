@@ -181,7 +181,9 @@ public class ModuloPersonas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_crearPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearPerActionPerformed
-        // TODO add your handling code here:
+        CrearPersona Cpersona = new CrearPersona();
+        Cpersona.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_crearPerActionPerformed
 
     private void btn_crearRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearRolActionPerformed

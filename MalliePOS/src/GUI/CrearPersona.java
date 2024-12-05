@@ -4,19 +4,26 @@ package GUI;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import Controllers.PersonaController;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
 /**
  *
  * @author santi
  */
 public class CrearPersona extends javax.swing.JFrame {
-
+    int identificacionV, telefonoV;
+    String tipoV, regimenTributarioV, contribuyenteV, nombreV, direccionV, emailV;
+    
+    PersonaController personaController;
     /**
+     *
      * Creates new form CreatePersona
      */
     public CrearPersona() {
         initComponents();
         this.setLocationRelativeTo(null);
+        personaController = new PersonaController();
     }
 
     /**
@@ -93,6 +100,12 @@ public class CrearPersona extends javax.swing.JFrame {
         jLabel10.setText("Contribuyente");
 
         cmb_contribuyente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Gran Contribuyente", "Contribuyente Mediano Alto", "Contribuyente Mediano", "Contribuyente pequeño", "Contribuyente micro" }));
+
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Nombre");
@@ -172,8 +185,18 @@ public class CrearPersona extends javax.swing.JFrame {
         );
 
         btn_atras.setText("Atras");
+        btn_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atrasActionPerformed(evt);
+            }
+        });
 
         btn_crear.setText("Crear");
+        btn_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_crearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,6 +253,58 @@ public class CrearPersona extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
+        ModuloPersonas Mpersonas = new ModuloPersonas();
+        Mpersonas.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_atrasActionPerformed
+
+    private void btn_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearActionPerformed
+        tipoV = cmb_tipo.getSelectedItem().toString();
+        regimenTributarioV = cmb_regTrib.getSelectedItem().toString();
+        contribuyenteV = cmb_contribuyente.getSelectedItem().toString();
+        nombreV = txt_nombre.getText();
+        direccionV = txt_direccion.getText();
+        emailV = txt_email.getText();
+        
+        try {
+            // Convertir el texto a un número entero
+            identificacionV = Integer.parseInt(txt_identificacion.getText());
+        } catch (NumberFormatException e) {
+            // Manejar el caso en que el texto no sea un número válido
+            JOptionPane.showMessageDialog(null, "Por favor, ingresa un numero que sea válido");
+        }
+        
+        try {
+            // Convertir el texto a un número entero
+            stockV = Integer.parseInt(txt_stockProd.getText());
+        } catch (NumberFormatException e) {
+            // Manejar el caso en que el texto no sea un número válido
+            JOptionPane.showMessageDialog(null, "Por favor, ingresa un stock que sea válido");
+        }
+        
+        try {
+            // Convertir el texto a un número entero
+            precioV = Float.parseFloat(txt_precioProd.getText());
+        } catch (NumberFormatException e) {
+            // Manejar el caso en que el texto no sea un número válido
+            JOptionPane.showMessageDialog(null, "Por favor, ingresa un precio que sea válido");
+        }
+        
+        
+        
+        try {
+            productoController.crearProducto(idCategoriaV, referenciaV, nombreV, descripcionV, stockV, precioV);
+            JOptionPane.showMessageDialog(null, "Datos registrados exitosamente");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo realizar el registro en la base de datos"+ e.getMessage());
+        }
+    }//GEN-LAST:event_btn_crearActionPerformed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
 
     /**
      * @param args the command line arguments

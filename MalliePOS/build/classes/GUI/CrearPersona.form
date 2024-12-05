@@ -308,6 +308,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txt_nombre">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nombreActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
@@ -353,11 +356,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Atras"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_atrasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_crear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Crear"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_crearActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
