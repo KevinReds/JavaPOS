@@ -23,8 +23,8 @@ public class PersonaController {
      * @return La persona creada.
      * @throws SQLException Si ocurre un error de SQL.
      */
-    public Persona crearPersona(String tipo, String identificacion, String regimenTributario, String contribuyente,
-                                String nombre, String direccion, String telefono, String email) throws SQLException {
+    public Persona crearPersona(String tipo, int identificacion, String regimenTributario, String contribuyente,
+                                String nombre, String direccion, int telefono, String email) throws SQLException {
         Persona persona = new Persona(0, tipo, identificacion, regimenTributario, contribuyente, nombre, direccion, telefono, email);
         persona.guardar();
         return persona;
@@ -55,8 +55,8 @@ public class PersonaController {
      * @param email               Nuevo email.
      * @throws SQLException Si ocurre un error de SQL.
      */
-    public void actualizarPersona(int idPersonas, String tipo, String identificacion, String regimenTributario, 
-                                  String contribuyente, String nombre, String direccion, String telefono, String email) 
+    public void actualizarPersona(int idPersonas, String tipo, int identificacion, String regimenTributario, 
+                                  String contribuyente, String nombre, String direccion, int telefono, String email) 
                                   throws SQLException {
         Persona persona = Persona.buscarPorId(idPersonas);
         if (persona != null) {

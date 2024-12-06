@@ -12,12 +12,12 @@ public class Persona {
 
     private int idPersonas;
     private String tipo;
-    private String identificacion;
+    private int identificacion;
     private String regimenTributario;
     private String contribuyente;
     private String nombre;
     private String direccion;
-    private String telefono;
+    private int telefono;
     private String email;
 
     // Constructor vacío
@@ -25,8 +25,8 @@ public class Persona {
     }
 
     // Constructor con parámetros
-    public Persona(int idPersonas, String tipo, String identificacion, String regimenTributario,
-                   String contribuyente, String nombre, String direccion, String telefono, String email) {
+    public Persona(int idPersonas, String tipo, int identificacion, String regimenTributario,
+                   String contribuyente, String nombre, String direccion, int telefono, String email) {
         this.idPersonas = idPersonas;
         this.tipo = tipo;
         this.identificacion = identificacion;
@@ -55,11 +55,11 @@ public class Persona {
         this.tipo = tipo;
     }
 
-    public String getIdentificacion() {
+    public int getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(String identificacion) {
+    public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
 
@@ -95,11 +95,11 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
@@ -118,12 +118,12 @@ public class Persona {
 
         try (PreparedStatement pstmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, tipo);
-            pstmt.setString(2, identificacion);
+            pstmt.setInt(2, identificacion);
             pstmt.setString(3, regimenTributario);
             pstmt.setString(4, contribuyente);
             pstmt.setString(5, nombre);
             pstmt.setString(6, direccion);
-            pstmt.setString(7, telefono);
+            pstmt.setInt(7, telefono);
             pstmt.setString(8, email);
             pstmt.executeUpdate();
 
@@ -146,12 +146,12 @@ public class Persona {
                 return new Persona(
                         rs.getInt("idPersonas"),
                         rs.getString("Tipo"),
-                        rs.getString("Identificacion"),
+                        rs.getInt("Identificacion"),
                         rs.getString("RegimenTributario"),
                         rs.getString("Contribuyente"),
                         rs.getString("Nombre"),
                         rs.getString("Direccion"),
-                        rs.getString("Telefono"),
+                        rs.getInt("Telefono"),
                         rs.getString("Email")
                 );
             }
@@ -165,12 +165,12 @@ public class Persona {
 
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setString(1, tipo);
-            pstmt.setString(2, identificacion);
+            pstmt.setInt(2, identificacion);
             pstmt.setString(3, regimenTributario);
             pstmt.setString(4, contribuyente);
             pstmt.setString(5, nombre);
             pstmt.setString(6, direccion);
-            pstmt.setString(7, telefono);
+            pstmt.setInt(7, telefono);
             pstmt.setString(8, email);
             pstmt.setInt(9, idPersonas);
             pstmt.executeUpdate();
@@ -201,12 +201,12 @@ public class Persona {
                 personas.add(new Persona(
                         rs.getInt("idPersonas"),
                         rs.getString("Tipo"),
-                        rs.getString("Identificacion"),
+                        rs.getInt("Identificacion"),
                         rs.getString("RegimenTributario"),
                         rs.getString("Contribuyente"),
                         rs.getString("Nombre"),
                         rs.getString("Direccion"),
-                        rs.getString("Telefono"),
+                        rs.getInt("Telefono"),
                         rs.getString("Email")
                 ));
             }

@@ -278,24 +278,14 @@ public class CrearPersona extends javax.swing.JFrame {
         
         try {
             // Convertir el texto a un número entero
-            stockV = Integer.parseInt(txt_stockProd.getText());
+            telefonoV = Integer.parseInt(txt_telefono.getText());
         } catch (NumberFormatException e) {
             // Manejar el caso en que el texto no sea un número válido
             JOptionPane.showMessageDialog(null, "Por favor, ingresa un stock que sea válido");
-        }
+        }        
         
         try {
-            // Convertir el texto a un número entero
-            precioV = Float.parseFloat(txt_precioProd.getText());
-        } catch (NumberFormatException e) {
-            // Manejar el caso en que el texto no sea un número válido
-            JOptionPane.showMessageDialog(null, "Por favor, ingresa un precio que sea válido");
-        }
-        
-        
-        
-        try {
-            productoController.crearProducto(idCategoriaV, referenciaV, nombreV, descripcionV, stockV, precioV);
+            personaController.crearPersona(tipoV, identificacionV, regimenTributarioV, contribuyenteV, nombreV, direccionV, telefonoV, emailV);
             JOptionPane.showMessageDialog(null, "Datos registrados exitosamente");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "No se pudo realizar el registro en la base de datos"+ e.getMessage());
