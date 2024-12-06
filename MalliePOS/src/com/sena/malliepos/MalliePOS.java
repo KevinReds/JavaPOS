@@ -1,5 +1,7 @@
 package com.sena.malliepos;
 
+import GUI.Bienvenida;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,6 +20,7 @@ public class MalliePOS {
      */
     public static void main(String[] args) {
         
+        new Bienvenida().setVisible(true);
     
     
     }
