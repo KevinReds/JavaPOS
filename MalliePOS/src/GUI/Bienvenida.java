@@ -123,10 +123,10 @@ public class Bienvenida extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_ingresarActionPerformed
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-
-         Licencia licencia = new Licencia();
-         licencia.setVisible(true);
-         this.setVisible(false);
+        
+        Licencia licencia = new Licencia();
+        licencia.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     /**
